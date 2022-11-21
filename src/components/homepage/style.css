@@ -1,0 +1,8 @@
+.wrapper{
+    position: absolute;
+}
+.search-bar{
+    position: absolute;
+    bottom:50%;
+    left: 20%;
+}
