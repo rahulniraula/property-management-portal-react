@@ -1,8 +1,12 @@
 import axios from "axios";
-import {baseUrl} from "./config";
+import {baseUrl, siteConfig} from "./config";
+import {getToken} from "../util/util";
+axios.defaults.baseURL=baseUrl;
+axios.defaults.headers.common['Authorization'] = getToken(siteConfig.accessTokenKey) ? `Bearer ${getToken(siteConfig.accessTokenKey)}` : ''
+axios.defaults.headers.common['refreshToken'] = getToken(siteConfig.refreshTokenKey) ? `${getToken(siteConfig.refreshTokenKey)}` : ''
+axios.defaults.headers.post['Content-Type'] = 'application/json';
 // Add a request interceptor
 axios.interceptors.request.use(function (config) {
-    config.baseURL=baseUrl;
     // Do something before request is sent
     return config;
 }, function (error) {

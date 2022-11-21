@@ -4,6 +4,7 @@ import NavBar from "./components/header/navbar";
 import {BrowserRouter, Route, Routes} from "react-router-dom";
 import Login from "./components/auth/login";
 import Home from "./components/homepage/home";
+import "./config/axios-interceptor";
 
 function App() {
     return (
