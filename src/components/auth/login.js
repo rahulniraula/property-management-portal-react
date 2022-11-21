@@ -1,18 +1,41 @@
+import {useRef} from "react";
+import AuthService from "../../service/auth-service";
+import {useNavigate} from "react-router-dom";
+import {hasAdministrativePrevilege} from "../../util/util";
+import Errors from "../shared/errors";
+
 const Login=()=>{
+    const signInForm=useRef();
+    const navigate=useNavigate();
+    function successCallback(data){
+        localStorage.setItem("USER_DATA",JSON.stringify(data.data))
+        if(hasAdministrativePrevilege(data)){
+            navigate("/admin")
+        }else{
+            navigate("/");
+        }
+
+    }
+    function doSignIn(){
+        let email=signInForm.current.email.value;
+        let password=signInForm.current.password.value;
+        AuthService.login({email,password,successCallback});
+    }
     return (
         <div className="row loginRow">
             <div className="offset-4 col-4 loginBlock">
                 <h3 className="text-center">Login</h3>
-                <form>
+                <Errors></Errors>
+                <form ref={signInForm}>
                     <div className="form-outline mb-4">
                         <label className="form-label">Email address</label>
-                        <input type="email"  className="form-control"/>
+                        <input type="email" name="email"  className="form-control"/>
 
                     </div>
 
                     <div className="form-outline mb-4">
                         <label className="form-label" htmlFor="form2Example2">Password</label>
-                        <input type="password" id="form2Example2" className="form-control"/>
+                        <input type="password" name={"password"} id="form2Example2" className="form-control"/>
 
                     </div>
 
@@ -29,7 +52,7 @@ const Login=()=>{
                         </div>
                     </div>
 
-                    <button type="button" className="btn btn-primary btn-block mb-4">Sign in</button>
+                    <button type="button" className="btn btn-primary btn-block mb-4" onClick={doSignIn}>Sign in</button>
 
                     <div className="text-center">
                         <p>Not a member? <a href="#!">Register</a></p>
