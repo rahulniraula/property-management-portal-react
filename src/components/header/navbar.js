@@ -6,7 +6,7 @@ import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
 import {siteConfig} from "../../config/config";
 import {Link, useNavigate} from "react-router-dom";
-import {isLoggedIn} from "../../util/util";
+import {isLoggedIn, logout} from "../../util/util";
 
 function NavBar() {
     const navigate=useNavigate();
@@ -35,7 +35,7 @@ function NavBar() {
                                 As
                             </NavDropdown.Item>
                             <NavDropdown.Divider />
-                            <NavDropdown.Item href="#action5">
+                            <NavDropdown.Item onClick={()=>logout()}>
                                 Logout
                             </NavDropdown.Item>
                         </NavDropdown>:<Nav.Link onClick={()=>{navigate("/login")}}>

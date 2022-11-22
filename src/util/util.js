@@ -9,11 +9,12 @@ export function hasAdministrativePrevilege(user){
     }else{
         return 0;
     }
-
-
 }
 export function isLoggedIn(){
     return getToken(siteConfig.accessTokenKey);
+}
+export function logout(){
+    return localStorage.clear();
 }
 export function catchErrorsFromResponse(error){
     let errors=error?.response?.data?.errors;
