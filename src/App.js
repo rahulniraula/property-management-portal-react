@@ -8,9 +8,9 @@ import "./config/axios-interceptor";
 
 function App() {
     return (
-        <div className="App">
+        <div className="container-fluid">
             <BrowserRouter>
-                <div className="container-fluid">
+                <div className="">
                     <NavBar></NavBar>
                 </div>
                 <Routes>

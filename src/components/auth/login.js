@@ -1,31 +1,35 @@
-import {useRef} from "react";
+import {useRef, useState} from "react";
 import AuthService from "../../service/auth-service";
 import {useNavigate} from "react-router-dom";
-import {hasAdministrativePrevilege} from "../../util/util";
+import {catchErrorsFromResponse, hasAdministrativePrevilege} from "../../util/util";
 import Errors from "../shared/errors";
 
 const Login=()=>{
     const signInForm=useRef();
     const navigate=useNavigate();
+    const [errors,setErrors]=useState([]);
     function successCallback(data){
-        localStorage.setItem("USER_DATA",JSON.stringify(data.data))
+        localStorage.setItem("USER_DATA",JSON.stringify(data));
         if(hasAdministrativePrevilege(data)){
             navigate("/admin")
         }else{
             navigate("/");
         }
+    }
+    function errorCallback(e){
+        setErrors(catchErrorsFromResponse(e));
 
     }
     function doSignIn(){
         let email=signInForm.current.email.value;
         let password=signInForm.current.password.value;
-        AuthService.login({email,password,successCallback});
+        AuthService.login({email,password,successCallback,errorCallback});
     }
     return (
         <div className="row loginRow">
             <div className="offset-4 col-4 loginBlock">
                 <h3 className="text-center">Login</h3>
-                <Errors></Errors>
+                <Errors errors={errors}></Errors>
                 <form ref={signInForm}>
                     <div className="form-outline mb-4">
                         <label className="form-label">Email address</label>

@@ -4,12 +4,13 @@ import {baseUrl} from "../config/config";
 const AuthService={
     login({email,password,successCallback,errorCallback}){
         axios({
-            url:baseUrl+"/auth/login",
+            url:baseUrl+"/authenticate/login",
             method:"POST",
             data:{email,password}
         }).then(resp=>{
             successCallback(resp.data);
         }).catch(e=>{
+            // console.log(e);
             errorCallback(e);
         });
     }

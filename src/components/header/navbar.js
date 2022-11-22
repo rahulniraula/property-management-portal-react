@@ -5,12 +5,15 @@ import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
 import {siteConfig} from "../../config/config";
+import {Link, useNavigate} from "react-router-dom";
+import {isLoggedIn} from "../../util/util";
 
 function NavBar() {
+    const navigate=useNavigate();
     return (
         <Navbar bg="light" expand="lg">
             <Container fluid>
-                <Navbar.Brand href="#">{siteConfig.appName}</Navbar.Brand>
+                <Navbar.Brand style={{cursor:"pointer"}} href="" onClick={()=>{navigate("/")}}>{siteConfig.appName}</Navbar.Brand>
                 <Navbar.Toggle aria-controls="navbarScroll" />
                 <Navbar.Collapse id="navbarScroll">
                     <Nav
@@ -21,27 +24,29 @@ function NavBar() {
                         <Nav.Link href="#action1">Buy</Nav.Link>
                         <Nav.Link href="#action2">Rent</Nav.Link>
                         <Nav.Link href="#action2">Sell</Nav.Link>
-                        <NavDropdown title="Link" id="navbarScrollingDropdown">
-                            <NavDropdown.Item href="#action3">Action</NavDropdown.Item>
+
+
+                    </Nav>
+                    {
+                        isLoggedIn()?<NavDropdown drop="start" title="Niraula" >
+                            <NavDropdown.Item href="#action3">Profile</NavDropdown.Item>
+                            <NavDropdown.Divider />
                             <NavDropdown.Item href="#action4">
-                                Another action
+                                As
                             </NavDropdown.Item>
                             <NavDropdown.Divider />
                             <NavDropdown.Item href="#action5">
-                                Something else here
+                                Logout
                             </NavDropdown.Item>
-                        </NavDropdown>
+                        </NavDropdown>:<Nav.Link onClick={()=>{navigate("/login")}}>
+                            Login
+                        </Nav.Link>
+                    }
+
+                    <Nav>
 
                     </Nav>
-                    <Form className="d-flex">
-                        <Form.Control
-                            type="search"
-                            placeholder="Search"
-                            className="me-2"
-                            aria-label="Search"
-                        />
-                        <Button variant="outline-success">Search</Button>
-                    </Form>
+
                 </Navbar.Collapse>
             </Container>
         </Navbar>
