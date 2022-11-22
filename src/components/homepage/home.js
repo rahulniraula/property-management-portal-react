@@ -1,5 +1,5 @@
 import HomepageSliderWrapper from "./homepage-slider-wrapper";
-import ProductsRow from "../products/products-row";
+import PropertyRow from "../products/property-row";
 
 
 
@@ -14,7 +14,7 @@ const Home=()=>{
             </div>
             <div className="row">
                 <div className="col-12">
-                    <ProductsRow title={"Title" } products={[{id:1},{id:2},{id:3},{id:4},{id:5},{id:6}]}></ProductsRow>
+                    <PropertyRow title={"Title" } properties={[{id:1},{id:2},{id:3},{id:4},{id:5},{id:6}]}></PropertyRow>
                 </div>
             </div>
         </>

@@ -2,7 +2,7 @@ import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 import Badge from 'react-bootstrap/Badge';
 import {HeartFill,Share,Envelope} from 'react-bootstrap-icons';
-function SingleProduct(props) {
+function SingleProperty(props) {
     return (
         <div className="col-3 mt-4">
             <Card >
@@ -56,4 +56,4 @@ function SingleProduct(props) {
     );
 }
 
-export default SingleProduct;
+export default SingleProperty;

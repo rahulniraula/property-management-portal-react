@@ -7,6 +7,9 @@ const MyRoutes=()=>{
         <Routes>
             <Route path="/" element={<Home></Home>}></Route>
             <Route path="/login" element={<Login></Login>}></Route>
+            <Route path="/propery-details" element="">
+                <Route path=""></Route>
+            </Route>
         </Routes>
     );
 }

@@ -1,7 +1,7 @@
-import SingleProduct from "./single-product";
+import SingleProperty from "./single-property";
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
-const ProductsRow=(props)=>{
+const PropertyRow=(props)=>{
     return (
         <div className="row mt-3">
             <div className="col-12">
@@ -13,7 +13,7 @@ const ProductsRow=(props)=>{
                         </div>
                         <div className="row">
 
-                            {props.products.map(product=><SingleProduct key={product.id} product={product}></SingleProduct>)}
+                            {props.properties.map(property=><SingleProperty key={property.id} property={property}></SingleProperty>)}
                         </div>
                     </Card.Body>
                 </Card>
@@ -22,4 +22,4 @@ const ProductsRow=(props)=>{
         </div>
     );
 }
-export default ProductsRow;
+export default PropertyRow;
