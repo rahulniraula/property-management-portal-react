@@ -39,13 +39,13 @@ function SingleProperty(props) {
                         {/*bulk of the card's content.*/}
                     </Card.Text>
                     <div className="row">
-                        <div className="col-4">
+                        <div className="col-6">
                             <Button title={"Add To Favourite List"} className="btn btn-danger"><HeartFill></HeartFill></Button>
                         </div>
-                        <div className="col-4">
-                            <Button title={"Share Item"} className="btn btn-primary"><Share></Share></Button>
-                        </div>
-                        <div className="col-4">
+                        {/*<div className="col-4">*/}
+                        {/*    <Button title={"Share Item"} className="btn btn-primary"><Share></Share></Button>*/}
+                        {/*</div>*/}
+                        <div className="col-6">
                             <Button title={"Contact the Owner"} className="btn btn-success"><Envelope></Envelope></Button>
 
                         </div>
