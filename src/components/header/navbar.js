@@ -38,9 +38,17 @@ function NavBar() {
                             <NavDropdown.Item onClick={()=>logout()}>
                                 Logout
                             </NavDropdown.Item>
-                        </NavDropdown>:<Nav.Link onClick={()=>{navigate("/login")}}>
-                            Login
-                        </Nav.Link>
+                        </NavDropdown>:(
+                        //     <Nav.Link onClick={()=>{navigate("/login")}}>
+                        //     Login
+                        // </Nav.Link>
+                            <>
+                                <button className={"btn btn-success"} onClick={()=>{navigate("/login")}}>Sign In</button>
+                                <button className={"btn btn-danger mx-5"}  onClick={()=>{navigate("/register")}}>Register</button>
+
+                            </>
+
+                        )
                     }
 
                     <Nav>

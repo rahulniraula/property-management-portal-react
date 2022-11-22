@@ -9,7 +9,7 @@ import MyRoutes from "./routes/routes";
 
 function App() {
     return (
-        <div className="container-fluid">
+        <div className="container">
             <BrowserRouter>
                 <div className="">
                     <NavBar></NavBar>

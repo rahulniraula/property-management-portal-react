@@ -13,6 +13,17 @@ const AuthService={
             // console.log(e);
             errorCallback(e);
         });
+    },
+    register({firstName,lastName,email,phoneNumber,password,confirmPassword,role,successCallback,errorCallback}){
+        axios({
+            url:baseUrl+"/authenticate/register",
+            method:"POST",
+            data:{firstName,lastName,email,phoneNumber,password,role}
+        }).then(resp=>{
+            successCallback(resp.data);
+        }).catch(e=>{
+            errorCallback(e);
+        });
     }
 }
 export default AuthService
