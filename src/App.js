@@ -5,6 +5,7 @@ import {BrowserRouter, Route, Routes} from "react-router-dom";
 import Login from "./components/auth/login";
 import Home from "./components/homepage/home";
 import "./config/axios-interceptor";
+import MyRoutes from "./routes/routes";
 
 function App() {
     return (
@@ -13,10 +14,7 @@ function App() {
                 <div className="">
                     <NavBar></NavBar>
                 </div>
-                <Routes>
-                    <Route path="/" element={<Home></Home>}></Route>
-                    <Route path="/login" element={<Login></Login>}></Route>
-                </Routes>
+                <MyRoutes></MyRoutes>
             </BrowserRouter>
 
         </div>
