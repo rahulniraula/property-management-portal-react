@@ -35,7 +35,7 @@ function NavBar() {
                                 As
                             </NavDropdown.Item>
                             <NavDropdown.Divider />
-                            <NavDropdown.Item onClick={()=>logout()}>
+                            <NavDropdown.Item onClick={()=>{logout();navigate("/")}}>
                                 Logout
                             </NavDropdown.Item>
                         </NavDropdown>:(

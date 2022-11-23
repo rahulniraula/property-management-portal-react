@@ -1,8 +1,5 @@
 import HomepageSliderWrapper from "./homepage-slider-wrapper";
 import PropertyRow from "../properties/property-row";
-
-
-
 const Home=()=>{
     return (
         <>

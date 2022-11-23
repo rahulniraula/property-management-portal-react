@@ -9,12 +9,7 @@ const Register=()=>{
     const navigate=useNavigate();
     const [errors,setErrors]=useState([]);
     function successCallback(data){
-        localStorage.setItem("USER_DATA",JSON.stringify(data));
-        if(hasAdministrativePrevilege(data)){
-            navigate("/admin")
-        }else{
-            navigate("/");
-        }
+        navigate("/login");
     }
     function errorCallback(e){
         setErrors(catchErrorsFromResponse(e));

@@ -3,7 +3,9 @@ import CustomerEnquiry from "./customer-enquiry";
 import Badge from 'react-bootstrap/Badge';
 import {House,Share,Envelope} from 'react-bootstrap-icons';
 import PropertyDetailsIcons from "./property-details-icons";
-const SinglePropertyDetails=()=>{
+import Accordion from "./accordion/accordion-wrapper";
+import AccordionWrapper from "./accordion/accordion-wrapper";
+const SinglePropertyDetails=(props)=>{
     return (
         <div className={"row"}>
             <p>Property Title</p>
@@ -39,7 +41,7 @@ const SinglePropertyDetails=()=>{
 
                     </div>
                     <div className="col-12">
-                        <h3>Property Description</h3>
+                        <AccordionWrapper></AccordionWrapper>
                     </div>
                 </div>
             </div>
