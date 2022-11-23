@@ -11,19 +11,21 @@ import {isLoggedIn, logout} from "../../util/util";
 function NavBar() {
     const navigate=useNavigate();
     return (
-        <Navbar bg="light" expand="lg">
+        <Navbar bg="primary" expand="lg" className={"text-white"}>
             <Container fluid>
-                <Navbar.Brand style={{cursor:"pointer"}} href="" onClick={()=>{navigate("/")}}>{siteConfig.appName}</Navbar.Brand>
+                <Navbar.Brand style={{cursor:"pointer",color:"white"}} href="" onClick={()=>{navigate("/")}}>{siteConfig.appName}</Navbar.Brand>
                 <Navbar.Toggle aria-controls="navbarScroll" />
                 <Navbar.Collapse id="navbarScroll">
                     <Nav
-                        className="me-auto my-2 my-lg-0"
+                        className="me-auto my-2 my-lg-0 text-white"
                         style={{ maxHeight: '100px' }}
                         navbarScroll
                     >
-                        <Nav.Link href="#action1">Buy</Nav.Link>
-                        <Nav.Link href="#action2">Rent</Nav.Link>
-                        <Nav.Link href="#action2">Sell</Nav.Link>
+
+                        <Nav.Link ><Link to="/buy" style={{color:"white"}}>Buy</Link></Nav.Link>
+                        <Nav.Link><Link to="/rent" style={{color:"white"}}>Rent</Link></Nav.Link>
+                        <Nav.Link><Link to="/sell" style={{color:"white"}}>Sell</Link></Nav.Link>
+
 
 
                     </Nav>

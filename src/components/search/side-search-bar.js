@@ -25,8 +25,8 @@ const SideSearchBar=()=>{
         <div className="row mt-3">
             <div className="col-12">
                 <Card>
-                    <CardHeader>
-                        <Card.Title>Advanced Search</Card.Title>
+                    <CardHeader className={"bg-primary"}>
+                        <Card.Title className={"text-white"}>Advanced Search</Card.Title>
                     </CardHeader>
                     <Card.Body>
                         <form ref={searchForm} onSubmit={search}>
