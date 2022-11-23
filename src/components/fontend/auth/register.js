@@ -16,14 +16,13 @@ const Register=()=>{
 
     }
     function doRegister(){
-        registerForm=registerForm.current;
-        let firstName=registerForm.firstName.value;
-        let lastName=registerForm.lastName.value;
-        let email=registerForm.email.value;
-        let phoneNumber=registerForm.phoneNumber.value;
-        let password=registerForm.password.value;
-        let confirmPassword=registerForm.confirmPassword.value;
-        let role=registerForm.role.value;
+        let firstName=registerForm.current.firstName.value;
+        let lastName=registerForm.current.lastName.value;
+        let email=registerForm.current.email.value;
+        let phoneNumber=registerForm.current.phoneNumber.value;
+        let password=registerForm.current.password.value;
+        let confirmPassword=registerForm.current.confirmPassword.value;
+        let role=registerForm.current.role.value;
         AuthService.register({firstName,lastName,email,phoneNumber,password,confirmPassword,role,successCallback,errorCallback});
     }
     return (

@@ -7,6 +7,8 @@ import Register from "../components/fontend/auth/register";
 import SearchResult from "../components/fontend/search/search-result";
 import NavBar from "../components/fontend/header/navbar";
 import AdminWrapper from "../components/backend/admin-wrapper";
+import CreateProperties from "../components/backend/properties/create-properties";
+import ListProperties from "../components/backend/properties/list-properties";
 
 const MyRoutes = () => {
     return (
@@ -21,7 +23,10 @@ const MyRoutes = () => {
                         <Route path=":id" element={<SinglePropertyDetails></SinglePropertyDetails>}></Route>
                     </Route>
                 </Route>
-                <Route path={"/admin"} element={<AdminWrapper></AdminWrapper>}></Route>
+                <Route path={"/admin"} element={<AdminWrapper></AdminWrapper>}>
+                    <Route path={"properties"} element={<ListProperties></ListProperties>}></Route>
+                    <Route path={"properties/create"} element={<CreateProperties></CreateProperties>}></Route>
+                </Route>
 
             </Routes>
         </>
