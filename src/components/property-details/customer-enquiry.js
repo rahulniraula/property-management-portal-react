@@ -1,7 +1,7 @@
 const CustomerEnquiry=()=>{
     return (
         <div className={"row"} style={{backgroundColor:"#fafafa"}}>
-            <h6 className={"text-center text-uppercase mt-2"}>More about this property</h6>
+            <h6 className={"text-center text-uppercase mt-2"}>Learn More about this property</h6>
             <div className="col-12">
                 <label>Full Name</label>
                 <input type="text" className="form-control" placeholder="Full Name" />

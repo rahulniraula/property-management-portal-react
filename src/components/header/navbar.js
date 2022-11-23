@@ -21,10 +21,10 @@ function NavBar() {
                         style={{ maxHeight: '100px' }}
                         navbarScroll
                     >
+                        <Link to="/buy" className={" text-white m-3"}>Buy</Link>
+                        <Link to="/rent" className={" text-white m-3"}>Rent</Link>
+                        <Link to="/sell" className={" text-white m-3"}>Sell</Link>
 
-                        <Nav.Link ><Link to="/buy" style={{color:"white"}}>Buy</Link></Nav.Link>
-                        <Nav.Link><Link to="/rent" style={{color:"white"}}>Rent</Link></Nav.Link>
-                        <Nav.Link><Link to="/sell" style={{color:"white"}}>Sell</Link></Nav.Link>
 
 
 

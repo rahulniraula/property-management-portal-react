@@ -2,12 +2,30 @@ import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 import Badge from 'react-bootstrap/Badge';
 import {HeartFill,Share,Envelope} from 'react-bootstrap-icons';
-import {Link} from "react-router-dom";
+import {Link, useNavigate} from "react-router-dom";
+import MyModal from "../shared/MyModal";
+import {useState} from "react";
+import CustomerEnquiry from "../property-details/customer-enquiry";
 function SingleProperty(props) {
+    const navigate=useNavigate();
+    const [showModal,setShowModal]=useState(false);
+    function addToFavouriteList(event){
+        event.stopPropagation();
+        console.log("Added to favourite");
+    }
+    function contactOwner(event){
+        event.stopPropagation();
+        setShowModal(true);
+    }
+    function handleClose(){
+        setShowModal(false);
+    }
     return (
         <div className="col-4 mt-4">
-            <Link to="/property-details/1">
-                <Card >
+            <MyModal show={showModal} handleClose={handleClose} title={"Inquirey"}>
+                <CustomerEnquiry></CustomerEnquiry>
+            </MyModal>
+                <Card onClick={()=>navigate("/property-details/1")} style={{cursor:"pointer"}}>
                     {/*<Card.Img variant="top" src={props.product.image} />*/}
                     <Card.Img variant="top" src="https://picsum.photos/200/100" >
 
@@ -42,19 +60,21 @@ function SingleProperty(props) {
                         </Card.Text>
                         <div className="row">
                             <div className="col-6">
-                                <Button title={"Add To Favourite List"} className="btn btn-danger"><HeartFill></HeartFill></Button>
+                                <Button onClick={addToFavouriteList} title={"Add To Favourite List"} className="btn btn-danger"><HeartFill></HeartFill></Button>
+
                             </div>
                             {/*<div className="col-4">*/}
                             {/*    <Button title={"Share Item"} className="btn btn-primary"><Share></Share></Button>*/}
                             {/*</div>*/}
                             <div className="col-6">
-                                <Button title={"Contact the Owner"} className="btn float-end btn-success"><Envelope></Envelope></Button>
+                                <Button onClick={contactOwner} title={"Contact the Owner"} className="btn float-end btn-success"><Envelope></Envelope></Button>
 
                             </div>
                         </div>
                     </Card.Body>
                 </Card>
-            </Link>
+
+
         </div>
     );
 }
