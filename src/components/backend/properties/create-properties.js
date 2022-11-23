@@ -1,11 +1,14 @@
 import {useNavigate} from "react-router-dom";
 import axios from "axios";
 import {useEffect, useRef, useState} from "react";
+import {catchErrorsFromResponse} from "../../../util/util";
+import Errors from "../../fontend/shared/errors";
 
 const CreateProperties=()=>{
     const navigate=useNavigate();
     const [propertyType,setPropertyType]=useState([]);
     const createForm=useRef();
+    const [errors,setErrors]=useState([]);
     useEffect(()=>fetchPropertyType,[])
     function createProperty(event){
         event.preventDefault();
@@ -25,8 +28,11 @@ const CreateProperties=()=>{
             method:"POST",
             data
         }).then(resp=>{
-            console.log(resp)
-        }).catch();
+            navigate("/admin/properties/")
+        }).catch(e=>{
+            setErrors(catchErrorsFromResponse(e));
+
+        });
     }
     function fetchPropertyType(){
         axios({
@@ -50,6 +56,7 @@ const CreateProperties=()=>{
                 </div>
 
                 <form className="row g-3" ref={createForm} onSubmit={createProperty}>
+                    <Errors errors={errors}></Errors>
                     <div className="col-6">
                         <label htmlFor="inputNanme4" className="form-label">Property Title</label>
                         <input type="text" name={"title"} className="form-control"/>
