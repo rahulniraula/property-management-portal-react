@@ -1,7 +1,7 @@
 import {useRef, useState} from "react";
-import AuthService from "../../service/auth-service";
+import AuthService from "../../../service/auth-service";
 import {Link, useNavigate} from "react-router-dom";
-import {catchErrorsFromResponse, hasAdministrativePrevilege} from "../../util/util";
+import {catchErrorsFromResponse, hasAdministrativePrevilege} from "../../../util/util";
 import Errors from "../shared/errors";
 
 const Register=()=>{
