@@ -10,7 +10,7 @@ const PropertySearchBar=()=>{
         navigate("/search?"+new URLSearchParams({q:searchForm.current.searchBox.value}).toString())
     }
     return (
-        <div className="search-bar col-md-7">
+        <div className="my-search-bar col-md-7">
             <form onSubmit={submitForm} ref={searchForm}>
                 <input type="text" name={"searchBox"} className="form-control p-3" placeholder="Enter an address, city or zip code"/>
             </form>

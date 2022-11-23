@@ -6,11 +6,11 @@ import SinglePropertyDetails from "../components/fontend/property-details/single
 import Register from "../components/fontend/auth/register";
 import SearchResult from "../components/fontend/search/search-result";
 import NavBar from "../components/fontend/header/navbar";
+import AdminWrapper from "../components/backend/admin-wrapper";
 
 const MyRoutes = () => {
     return (
         <>
-
             <Routes>
                 <Route path="/" element={<NavBar></NavBar>}>
                     <Route path="/" element={<Home></Home>}></Route>
@@ -21,7 +21,7 @@ const MyRoutes = () => {
                         <Route path=":id" element={<SinglePropertyDetails></SinglePropertyDetails>}></Route>
                     </Route>
                 </Route>
-                <Route path={"/admin"}></Route>
+                <Route path={"/admin"} element={<AdminWrapper></AdminWrapper>}></Route>
 
             </Routes>
         </>
