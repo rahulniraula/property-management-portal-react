@@ -10,6 +10,7 @@ import AdminWrapper from "../components/backend/admin-wrapper";
 import CreateProperties from "../components/backend/properties/create-properties";
 import ListProperties from "../components/backend/properties/list-properties";
 import ListUser from "../components/backend/user/list-user";
+import OfferList from "../components/backend/offer/OfferList";
 
 const MyRoutes = () => {
     return (
@@ -25,7 +26,10 @@ const MyRoutes = () => {
                     </Route>
                 </Route>
                 <Route path={"/admin"} element={<AdminWrapper></AdminWrapper>}>
-                    <Route path={"properties"} element={<ListProperties></ListProperties>}></Route>
+                    <Route path={"properties"} element={<ListProperties></ListProperties>}>
+                        <Route path={":id/offers"} element={<OfferList></OfferList>}></Route>
+                    </Route>
+
                     <Route path={"properties/create"} element={<CreateProperties></CreateProperties>}></Route>
                     <Route path={"users"} element={<ListUser></ListUser>}></Route>
                     {/*<Route path={"users/create"} element={<Crea></Crea>}></Route>*/}
