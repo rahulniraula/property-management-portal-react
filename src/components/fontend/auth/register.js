@@ -61,7 +61,7 @@ const Register=()=>{
                         <label className="form-label" htmlFor="form2Example2">Preferred Role</label>
                         <select name={"role"} className={"form-control"}>
                             <option value="OWNER">Owner</option>
-                            <option value="CLIENT">Client</option>
+                            <option value="CUSTOMER">Customer</option>
                         </select>
                     </div>
                     <button type="button" className="btn btn-primary btn-block mt-4" onClick={doRegister}>Register</button>

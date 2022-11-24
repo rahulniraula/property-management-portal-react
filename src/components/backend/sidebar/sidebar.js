@@ -18,6 +18,10 @@ const Sidebar=()=>{
                         <i className="bi bi-person"></i>
                         <span>Properties</span>
                     </Link>
+                    <Link to={"/admin/users"} className="nav-link collapsed">
+                        <i className="bi bi-person"></i>
+                        <span>Users</span>
+                    </Link>
                 </li>
 
 

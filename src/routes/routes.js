@@ -9,6 +9,7 @@ import NavBar from "../components/fontend/header/navbar";
 import AdminWrapper from "../components/backend/admin-wrapper";
 import CreateProperties from "../components/backend/properties/create-properties";
 import ListProperties from "../components/backend/properties/list-properties";
+import ListUser from "../components/backend/user/list-user";
 
 const MyRoutes = () => {
     return (
@@ -26,6 +27,8 @@ const MyRoutes = () => {
                 <Route path={"/admin"} element={<AdminWrapper></AdminWrapper>}>
                     <Route path={"properties"} element={<ListProperties></ListProperties>}></Route>
                     <Route path={"properties/create"} element={<CreateProperties></CreateProperties>}></Route>
+                    <Route path={"users"} element={<ListUser></ListUser>}></Route>
+                    {/*<Route path={"users/create"} element={<Crea></Crea>}></Route>*/}
                 </Route>
 
             </Routes>

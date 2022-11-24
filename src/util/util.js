@@ -4,11 +4,13 @@ import jwt_decode from "jwt-decode";
 export function getToken(key) {
     return localStorage.getItem("USER_DATA") ? JSON.parse(localStorage.getItem("USER_DATA"))[key] : "";
 }
-export function hasAdministrativePrevilege(user){
-    if(user?.roles?.includes("ADMIN") || user?.roles?.includes("OWNER")){
-        return 1;
+export function hasAdministrativePrevilege(){
+    let user=extractUserFromToken();
+    console.log(user);
+    if(user?.roles?.find(role=>role.role==="ADMIN") || user?.roles?.find(role=>role.role==="OWNER")){
+        return true;
     }else{
-        return 0;
+        return false;
     }
 }
 export function isLoggedIn(){

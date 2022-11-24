@@ -1,6 +1,7 @@
 import {useNavigate} from "react-router-dom";
 import axios from "axios";
 import {useEffect, useState} from "react";
+import Action from "./action";
 
 const ListProperties=()=>{
     const navigate=useNavigate();
@@ -35,6 +36,7 @@ const ListProperties=()=>{
                         <th scope="col">Price</th>
                         <th scope="col">Property Type</th>
                         <th scope="col">Area</th>
+                        <th>Action</th>
                     </tr>
                     </thead>
                     <tbody>
@@ -46,11 +48,12 @@ const ListProperties=()=>{
                                 <td>{p.price}</td>
                                 <td>{p.propertyType}</td>
                                 <td>{p.area}</td>
+                                <td>
+                                    <Action></Action>
+                                </td>
                             </tr>
                         );
                     })}
-
-
                     </tbody>
                 </table>
 

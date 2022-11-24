@@ -10,7 +10,7 @@ const Login=()=>{
     const [errors,setErrors]=useState([]);
     function successCallback(data){
         localStorage.setItem("USER_DATA",JSON.stringify(data));
-        if(hasAdministrativePrevilege(data)){
+        if(hasAdministrativePrevilege()){
             navigate("/admin")
         }else{
             navigate("/");

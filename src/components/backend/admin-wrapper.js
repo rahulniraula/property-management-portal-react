@@ -9,9 +9,12 @@ import "../../assets/css/style.css";
 import Header from "./header/header";
 import Sidebar from "./sidebar/sidebar";
 import ContentArea from "./content/content-area";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 const AdminWrapper=()=>{
     return (
         <>
+            <ToastContainer theme={"dark"}/>
             <Header></Header>
             <Sidebar></Sidebar>
             <ContentArea></ContentArea>
