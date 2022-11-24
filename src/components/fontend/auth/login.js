@@ -1,6 +1,6 @@
 import {useRef, useState} from "react";
 import AuthService from "../../../service/auth-service";
-import {useNavigate} from "react-router-dom";
+import {Link, useNavigate} from "react-router-dom";
 import {catchErrorsFromResponse, hasAdministrativePrevilege} from "../../../util/util";
 import Errors from "../shared/errors";
 
@@ -59,7 +59,7 @@ const Login=()=>{
                     <button type="button" className="btn btn-primary btn-block mb-4" onClick={doSignIn}>Sign in</button>
 
                     <div className="text-center">
-                        <p>Not a member? <a href="src/components/fontend/auth/login#!">Register</a></p>
+                        <p>Not a member? <Link to="/register">Register</Link></p>
                         <p>or sign up with:</p>
                         <button type="button" className="btn btn-link btn-floating mx-1">
                             <i className="fab fa-facebook-f"></i>
