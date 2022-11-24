@@ -7,14 +7,14 @@ import MyModal from "../shared/MyModal";
 import {useState} from "react";
 import CustomerEnquiry from "../property-details/customer-enquiry";
 import Offer from "./offer";
+import AddToFavoriteList from "../favorite/add-to-favorite-list";
+import FavoriteWrapper from "../favorite/favorite-wrapper";
 function SingleProperty(props) {
     const navigate=useNavigate();
     const [showModal,setShowModal]=useState(false);
     const [showOfferModal,setShowOfferModal]=useState(false);
-    function addToFavouriteList(event){
-        event.stopPropagation();
-        console.log("Added to favourite");
-    }
+    const [showFavoriteModal,setShowFavoriteModal]=useState(false);
+
     function contactOwner(event){
         event.stopPropagation();
         setShowModal(true);
@@ -29,6 +29,14 @@ function SingleProperty(props) {
     function handleOfferClose(){
         setShowOfferModal(false)
     }
+    function handelFavoriteClose(){
+        setShowFavoriteModal(false);
+    }
+    function addToFavouriteList(event){
+        event.stopPropagation();
+        // console.log("Added to favourite");
+        setShowFavoriteModal(true)
+    }
     function success(){
 
     }
@@ -36,6 +44,9 @@ function SingleProperty(props) {
         <div className="col-4 mt-4">
             <MyModal show={showOfferModal} handleClose={handleOfferClose} title={props.property.title}>
                 <Offer property={props.property} success={handleOfferClose}></Offer>
+            </MyModal>
+            <MyModal show={showFavoriteModal} handleClose={handelFavoriteClose} title={props.property.title}>
+                <FavoriteWrapper property={props.property} success={handelFavoriteClose}></FavoriteWrapper>
             </MyModal>
             <MyModal show={showModal} handleClose={handleClose} title={props.property.title}>
                 <CustomerEnquiry property={props.property}></CustomerEnquiry>
