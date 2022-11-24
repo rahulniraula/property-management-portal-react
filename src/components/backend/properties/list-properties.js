@@ -42,7 +42,7 @@ const ListProperties=()=>{
                     <tbody>
                     {properties.map(p=>{
                         return (
-                            <tr>
+                            <tr key={p.id}>
                                 <th scope="row">1</th>
                                 <td>{p.title}</td>
                                 <td>{p.price}</td>
