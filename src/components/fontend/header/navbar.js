@@ -6,7 +6,7 @@ import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
 import {siteConfig} from "../../../config/config";
 import {Link, Outlet, useNavigate} from "react-router-dom";
-import {isLoggedIn, logout} from "../../../util/util";
+import extractUserFromToken, {isLoggedIn, logout} from "../../../util/util";
 
 function NavBar() {
     const navigate=useNavigate();
@@ -31,7 +31,7 @@ function NavBar() {
 
                         </Nav>
                         {
-                            isLoggedIn()?<NavDropdown drop="start" title="Niraula" >
+                            isLoggedIn()?<NavDropdown drop="start" title={extractUserFromToken()?.email} >
                                 <NavDropdown.Item href="#action3">Profile</NavDropdown.Item>
                                 <NavDropdown.Divider />
                                 <NavDropdown.Item href="#action4">
