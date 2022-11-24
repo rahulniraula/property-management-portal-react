@@ -20,7 +20,7 @@ const CustomerEnquiry=()=>{
             </div>
             <div className={"col-12"}>
                 <input type={"checkbox"}/><label htmlFor="">I Agree to the Terms and Condition</label><br/>
-                <button className={"btn btn-danger btn-block"} style={{width:"100%"}}>Contact Owner</button>
+                <button className={"btn btn-primary btn-block"} style={{width:"100%"}}>Contact Owner</button>
             </div>
             <div className="col-12 text-opacity-25" style={{fontSize:"10px",textAlign:"justify"}} >
                 <i>

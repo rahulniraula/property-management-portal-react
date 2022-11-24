@@ -20,10 +20,10 @@ const PropertyRow=(props)=>{
         <div className="row mt-3">
             <div className="col-12">
                 <Card>
-                    <CardHeader className={"bg-primary"}>
+                    <CardHeader className={"bg-primary"} style={{padding:'0px'}}>
                         <div className="row">
-                            <div className="col-9 text-white"><Card.Title>{props.title}</Card.Title></div>
-                            <div className="col-3"><input placeholder={"Search"} className={"form-control"}/></div>
+                            <div className="col-9 text-white"><Card.Title className={"text-white mx-3"}>{props.title}</Card.Title></div>
+                            <div className="col-3"><input placeholder={"Search"} className={"form-control mt-3 "}/></div>
                         </div>
                     </CardHeader>
                     <Card.Body>

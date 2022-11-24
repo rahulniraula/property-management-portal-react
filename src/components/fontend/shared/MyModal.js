@@ -6,7 +6,7 @@ function MyModal(props) {
     return (
         <>
             <Modal show={props.show} onHide={props.handleClose}>
-                <Modal.Header closeButton>
+                <Modal.Header closeButton className={"bg-primary text-white"}>
                     <Modal.Title>{props.title}</Modal.Title>
                 </Modal.Header>
                 <Modal.Body>

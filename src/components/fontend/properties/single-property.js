@@ -81,7 +81,7 @@ function SingleProperty(props) {
                             {/*    <Button title={"Share Item"} className="btn btn-primary"><Share></Share></Button>*/}
                             {/*</div>*/}
                             <div className="col-6">
-                                <Button onClick={makeOffer} title={"Make and Offer"} className="btn text-white float-start btn-info"><CurrencyDollar></CurrencyDollar>Make An Offer</Button>
+                                <Button onClick={makeOffer} title={"Make and Offer"} className="btn text-white float-start btn-primary"><CurrencyDollar></CurrencyDollar>Make An Offer</Button>
 
                             </div>
                             <div className="col-6">
