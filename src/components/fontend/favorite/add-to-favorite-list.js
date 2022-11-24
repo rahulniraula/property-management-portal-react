@@ -13,7 +13,10 @@ const AddToFavoriteList=(props)=>{
         }).then(resp=>{
             toast("Property Added to Favorite List Successfully")
             props.success();
-        }).catch();
+        }).catch(e=>{
+            // console.log(e);
+            toast(e?.response?.data?.message)
+        });
     }
     return (
         <div className="card">
