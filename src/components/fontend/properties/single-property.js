@@ -29,10 +29,13 @@ function SingleProperty(props) {
     function handleOfferClose(){
         setShowOfferModal(false)
     }
+    function success(){
+
+    }
     return (
         <div className="col-4 mt-4">
             <MyModal show={showOfferModal} handleClose={handleOfferClose} title={props.property.title}>
-                <Offer property={props.property}></Offer>
+                <Offer property={props.property} success={handleOfferClose}></Offer>
             </MyModal>
             <MyModal show={showModal} handleClose={handleClose} title={props.property.title}>
                 <CustomerEnquiry property={props.property}></CustomerEnquiry>

@@ -6,10 +6,13 @@ import Login from "./components/fontend/auth/login";
 import Home from "./components/fontend/homepage/home";
 import "./config/axios-interceptor";
 import MyRoutes from "./routes/routes";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 function App() {
     return (
         <div className="container">
+            <ToastContainer />
             <BrowserRouter>
                 <div className="">
                     {/*<NavBar></NavBar>*/}
