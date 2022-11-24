@@ -1,14 +1,16 @@
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 import Badge from 'react-bootstrap/Badge';
-import {HeartFill,Share,Envelope} from 'react-bootstrap-icons';
+import {HeartFill,Envelope,CurrencyDollar} from 'react-bootstrap-icons';
 import {Link, useNavigate} from "react-router-dom";
 import MyModal from "../shared/MyModal";
 import {useState} from "react";
 import CustomerEnquiry from "../property-details/customer-enquiry";
+import Offer from "./offer";
 function SingleProperty(props) {
     const navigate=useNavigate();
     const [showModal,setShowModal]=useState(false);
+    const [showOfferModal,setShowOfferModal]=useState(false);
     function addToFavouriteList(event){
         event.stopPropagation();
         console.log("Added to favourite");
@@ -20,28 +22,43 @@ function SingleProperty(props) {
     function handleClose(){
         setShowModal(false);
     }
+    function makeOffer(event){
+        event.stopPropagation();
+        setShowOfferModal(true)
+    }
+    function handleOfferClose(){
+        setShowOfferModal(false)
+    }
     return (
         <div className="col-4 mt-4">
-            <MyModal show={showModal} handleClose={handleClose} title={"Inquirey"}>
-                <CustomerEnquiry></CustomerEnquiry>
+            <MyModal show={showOfferModal} handleClose={handleOfferClose} title={props.property.title}>
+                <Offer property={props.property}></Offer>
             </MyModal>
-                <Card onClick={()=>navigate("/property-details/1")} style={{cursor:"pointer"}}>
+            <MyModal show={showModal} handleClose={handleClose} title={props.property.title}>
+                <CustomerEnquiry property={props.property}></CustomerEnquiry>
+            </MyModal>
+                <Card onClick={()=>navigate("/property-details/"+props.property.id)} style={{cursor:"pointer"}}>
                     {/*<Card.Img variant="top" src={props.product.image} />*/}
                     <Card.Img variant="top" src="https://picsum.photos/200/100" >
-
                     </Card.Img>
+                    <div className="col-16" style={{position:'absolute',top:'0px',right:'0px'}}>
+                        <Button onClick={addToFavouriteList} title={"Add To Favourite List"} className="btn btn-danger"><HeartFill></HeartFill></Button>
+                    </div>
                     <Card.Body>
                         <Badge bg="success">
-                            Property Type
+                            {props?.property?.propertyType}
                         </Badge>
-                        <Card.Title>12500</Card.Title>
-                        {/*<Card.Text>*/}
+                        <Card.Title>
+                            {props?.property?.price}
+                            <h6>{props?.property?.title}</h6>
+                        </Card.Title>
+
                         <div className="row">
                             <div className="col-4">
-                                3 <b>bed</b>
+                                {props?.property?.details?.noOfRooms} <b>Rooms</b>
                             </div>
                             <div className="col-4">
-                                3 <b>Sq.ft</b>
+                                {props?.property?.area} <b>Sq.ft</b>
                             </div>
                             <div className="col-4">
                                 3 <b>bed</b>
@@ -59,15 +76,16 @@ function SingleProperty(props) {
                             {/*bulk of the card's content.*/}
                         </Card.Text>
                         <div className="row">
-                            <div className="col-6">
-                                <Button onClick={addToFavouriteList} title={"Add To Favourite List"} className="btn btn-danger"><HeartFill></HeartFill></Button>
 
-                            </div>
                             {/*<div className="col-4">*/}
                             {/*    <Button title={"Share Item"} className="btn btn-primary"><Share></Share></Button>*/}
                             {/*</div>*/}
                             <div className="col-6">
-                                <Button onClick={contactOwner} title={"Contact the Owner"} className="btn float-end btn-success"><Envelope></Envelope></Button>
+                                <Button onClick={makeOffer} title={"Make and Offer"} className="btn text-white float-start btn-info"><CurrencyDollar></CurrencyDollar>Make An Offer</Button>
+
+                            </div>
+                            <div className="col-6">
+                                <Button onClick={contactOwner} title={"Contact the Owner"} className="btn text-white float-end btn-success"><Envelope></Envelope> Contact</Button>
 
                             </div>
                         </div>

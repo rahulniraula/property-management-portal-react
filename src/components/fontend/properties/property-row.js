@@ -2,7 +2,20 @@ import SingleProperty from "./single-property";
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 import CardHeader from "react-bootstrap/CardHeader";
+import {useEffect, useState} from "react";
+import axios from "axios";
 const PropertyRow=(props)=>{
+    const [properties,setProperties]=useState([]);
+    useEffect(fetchProperties,[])
+    function fetchProperties(){
+        axios({
+            ...props.axios
+        }).then(resp=>{
+            setProperties(resp.data)
+        }).catch(
+
+        )
+    }
     return (
         <div className="row mt-3">
             <div className="col-12">
@@ -16,7 +29,7 @@ const PropertyRow=(props)=>{
                     <Card.Body>
 
                         <div className="row">
-                            {props.properties.map(property=><SingleProperty key={property.id} property={property}></SingleProperty>)}
+                            {properties.map(property=><SingleProperty key={property.id} property={property}></SingleProperty>)}
                         </div>
                     </Card.Body>
                 </Card>
