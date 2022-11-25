@@ -18,11 +18,12 @@ function SingleProperty(props) {
 
     function contactOwner(event){
         event.stopPropagation();
-        if(!isLoggedIn()){
-            navigate("/login")
-        }else{
-            setShowModal(true);
-        }
+        setShowModal(true);
+        // if(!isLoggedIn()){
+        //     navigate("/login")
+        // }else{
+        //     setShowModal(true);
+        // }
     }
     function handleClose(){
         setShowModal(false);

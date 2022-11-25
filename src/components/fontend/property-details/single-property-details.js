@@ -58,7 +58,7 @@ const SinglePropertyDetails=(props)=>{
                 </div>
             </div>
             <div className="col-4">
-                <CustomerEnquiry></CustomerEnquiry>
+                <CustomerEnquiry  property={property}></CustomerEnquiry>
             </div>
         </div>
     );

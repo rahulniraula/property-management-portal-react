@@ -1,26 +1,48 @@
-const CustomerEnquiry=()=>{
+import axios from "axios";
+import { useRef } from "react";
+import { toast } from "react-toastify";
+
+const CustomerEnquiry=(props)=>{
+    const fullNameR=useRef();
+    const emailR=useRef();
+    const phoneR=useRef();
+    const messageR=useRef();
+    function sendMessage(){
+        axios({
+            url:"/message/"+props?.property?.id+"/",
+            method:'POST',
+            data:{
+                fullName:fullNameR.current.value,
+                email:emailR.current.value,
+                phone:phoneR.current.value,
+                message:messageR.current.value,
+            }
+        }).then(resp=>{
+            toast("Message sent to owner successfully");
+        }).catch();
+    }
     return (
         <div className={"row"} style={{backgroundColor:"#fafafa"}}>
             <h6 className={"text-center text-uppercase mt-2"}>Learn More about this property</h6>
             <div className="col-12">
                 <label>Full Name</label>
-                <input type="text" className="form-control" placeholder="Full Name" />
+                <input ref={fullNameR} type="text" className="form-control" placeholder="Full Name" />
             </div>
             <div className="col-12">
                 <label htmlFor="">Email</label>
-                <input type="text" className="form-control" placeholder="Full Name" />
+                <input ref={emailR} type="text" className="form-control" placeholder="Email" />
             </div>
             <div className="col-12">
                 <label htmlFor="">Phone</label>
-                <input type="text" className="form-control" placeholder="Full Name" />
+                <input ref={phoneR} type="text" className="form-control" placeholder="Phone Number" />
             </div>
             <div className={"col-12"}>
                 <label htmlFor="">Message</label>
-                <textarea className={"form-control"}></textarea>
+                <textarea ref={messageR} className={"form-control"}></textarea>
             </div>
             <div className={"col-12"}>
                 <input type={"checkbox"}/><label htmlFor="">I Agree to the Terms and Condition</label><br/>
-                <button className={"btn btn-primary btn-block"} style={{width:"100%"}}>Contact Owner</button>
+                <button onClick={sendMessage} className={"btn btn-primary btn-block"} style={{width:"100%"}}>Contact Owner</button>
             </div>
             <div className="col-12 text-opacity-25" style={{fontSize:"10px",textAlign:"justify"}} >
                 <i>
