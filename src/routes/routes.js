@@ -12,6 +12,8 @@ import ListProperties from "../components/backend/properties/list-properties";
 import ListUser from "../components/backend/user/list-user";
 import OfferList from "../components/backend/offer/OfferList";
 import Profile from "../components/backend/profile/profile";
+import CategoryWrapper from "../components/fontend/properties/category/category-wrapper";
+import Category from "../components/fontend/properties/category/category";
 
 const MyRoutes = () => {
     return (
@@ -22,6 +24,9 @@ const MyRoutes = () => {
                     <Route path="/login" element={<Login></Login>}></Route>
                     <Route path="/register" element={<Register></Register>}></Route>
                     <Route path="/search" element={<SearchResult></SearchResult>}></Route>
+                    <Route path="/property-type" element={<CategoryWrapper></CategoryWrapper>}>
+                        <Route path=":type" element={<Category></Category>}></Route>
+                    </Route>
                     <Route path="/property-details" element={<PropertyDetails></PropertyDetails>}>
                         <Route path=":id" element={<SinglePropertyDetails></SinglePropertyDetails>}></Route>
                     </Route>

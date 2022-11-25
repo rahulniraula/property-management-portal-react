@@ -22,9 +22,9 @@ function NavBar() {
                             style={{ maxHeight: '100px' }}
                             navbarScroll
                         >
-                            <Link to="/buy" className={" text-white m-3"}>Buy</Link>
-                            <Link to="/rent" className={" text-white m-3"}>Rent</Link>
-                            <Link to="/sell" className={" text-white m-3"}>Sell</Link>
+                            <Link to="/property-type/DUPLEX" className={" text-white m-3"}>DUPLEX</Link>
+                            <Link to="/property-type/SINGLE" className={" text-white m-3"}>SINGLE</Link>
+                            <Link to="/property-type/CONDO" className={" text-white m-3"}>CONDO</Link>
 
 
 
