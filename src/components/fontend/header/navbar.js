@@ -32,7 +32,7 @@ function NavBar() {
                         </Nav>
                         {
                             isLoggedIn()?<NavDropdown drop="start" title={extractUserFromToken()?.email} >
-                                <NavDropdown.Item href="#action3">Profile</NavDropdown.Item>
+                                <NavDropdown.Item  onClick={()=>{logout();navigate("/admin/profile")}}>Profile</NavDropdown.Item>
                                 <NavDropdown.Divider />
                                 <NavDropdown.Item href="#action4">
                                     As

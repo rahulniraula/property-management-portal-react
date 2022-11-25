@@ -11,6 +11,7 @@ import CreateProperties from "../components/backend/properties/create-properties
 import ListProperties from "../components/backend/properties/list-properties";
 import ListUser from "../components/backend/user/list-user";
 import OfferList from "../components/backend/offer/OfferList";
+import Profile from "../components/backend/profile/profile";
 
 const MyRoutes = () => {
     return (
@@ -32,6 +33,7 @@ const MyRoutes = () => {
 
                     <Route path={"properties/create"} element={<CreateProperties></CreateProperties>}></Route>
                     <Route path={"users"} element={<ListUser></ListUser>}></Route>
+                    <Route path={"profile"} element={<Profile></Profile>}></Route>
                     {/*<Route path={"users/create"} element={<Crea></Crea>}></Route>*/}
                 </Route>
 
