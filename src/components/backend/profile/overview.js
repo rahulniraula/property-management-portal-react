@@ -9,22 +9,22 @@ const Overview=()=>{
 
         <div className="row">
             <div className="col-lg-3 col-md-4 label ">Email</div>
-            <div className="col-lg-9 col-md-8">{user.email}</div>
+            <div className="col-lg-9 col-md-8">{user?.email}</div>
         </div>
 
         <div className="row">
             <div className="col-lg-3 col-md-4 label">First Name</div>
-            <div className="col-lg-9 col-md-8">{user.firstname}</div>
+            <div className="col-lg-9 col-md-8">{user?.firstname}</div>
         </div>
 
         <div className="row">
             <div className="col-lg-3 col-md-4 label">Last Name</div>
-            <div className="col-lg-9 col-md-8">{user.lastname}</div>
+            <div className="col-lg-9 col-md-8">{user?.lastname}</div>
         </div>
 
         <div className="row">
             <div className="col-lg-3 col-md-4 label">Phone Number</div>
-            <div className="col-lg-9 col-md-8">{user.phoneNumber}</div>
+            <div className="col-lg-9 col-md-8">{user?.phoneNumber}</div>
         </div>
 
 
