@@ -21,7 +21,11 @@ const Action=(props)=>{
         event.preventDefault();
         navigate("/admin/properties/"+props.property.id+"/offers",{state:props?.property})
     }
-    return (
+    function cancelContingency(event){
+        event.preventDefault();
+        props.cancelContingency();
+
+    }    return (
         <ul className="nav nav-tabs">
             <li className="nav-item dropdown show">
                 <a className="nav-link dropdown-toggle" data-toggle="dropdown"
@@ -31,6 +35,7 @@ const Action=(props)=>{
                     {props.property.actions.indexOf("Delete Property")!==-1?<a className="dropdown-item" href={""} onClick={deleteProperty}>Delete Property</a>:null}
                     {props.property.actions.indexOf("Edit Property")!==-1?<a className="dropdown-item" href={""} onClick={editProperty}>Edit Property</a>:null}
                     {props.property.actions.indexOf("Show Offers")!==-1?<a className="dropdown-item" href={""} onClick={showOffers}>Show Offers</a>:null}
+                    {props.property.actions.indexOf("Cancel Contingency")!==-1?<a className="dropdown-item" href={""} onClick={cancelContingency}>Cancel Contingency</a>:null}
 
                     <div className="dropdown-divider"></div>
                     <a className="dropdown-item" href="#">Separated link</a>

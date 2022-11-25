@@ -59,8 +59,11 @@ function SingleProperty(props) {
                         <Button onClick={addToFavouriteList} title={"Add To Favourite List"} className="btn btn-danger"><HeartFill></HeartFill></Button>
                     </div>
                     <Card.Body>
-                        <Badge bg="success">
+                        <Badge bg="success" style={{fontSize:'10px'}}>
                             {props?.property?.propertyType}
+                        </Badge>
+                        <Badge bg="success mx-3" style={{fontSize:'10px'}}>
+                            {props?.property?.status}
                         </Badge>
                         <Card.Title>
                             {props?.property?.price}
@@ -95,7 +98,7 @@ function SingleProperty(props) {
                             {/*    <Button title={"Share Item"} className="btn btn-primary"><Share></Share></Button>*/}
                             {/*</div>*/}
                             <div className="col-6">
-                                <Button onClick={makeOffer} title={"Make and Offer"} className="btn text-white float-start btn-primary"><CurrencyDollar></CurrencyDollar>Make An Offer</Button>
+                                {props?.property?.status!=="CONTINGENT"?<Button onClick={makeOffer} title={"Make and Offer"} className="btn text-white float-start btn-primary"><CurrencyDollar></CurrencyDollar>Make An Offer</Button>:null}
 
                             </div>
                             <div className="col-6">

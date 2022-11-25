@@ -2,6 +2,7 @@ import {Outlet, useNavigate} from "react-router-dom";
 import axios from "axios";
 import {useEffect, useState} from "react";
 import Action from "./action";
+import {toast} from "react-toastify";
 
 const ListProperties=()=>{
     const navigate=useNavigate();
@@ -12,6 +13,14 @@ const ListProperties=()=>{
             url:"/properties/"
         }).then(resp=>{
             setProperties(resp.data)
+        }).catch();
+    }
+    function cancelContingency(property){
+        axios({
+            url:'/properties/'+property.id+"/cancel-contingency/",
+            method:"put"
+        }).then(resp=>{
+            toast("Property is now Non Contingent")
         }).catch();
     }
     return (
@@ -37,7 +46,7 @@ const ListProperties=()=>{
                                 <th scope="col">Title</th>
                                 <th scope="col">Price</th>
                                 <th scope="col">Property Type</th>
-                                <th scope="col">Area</th>
+                                <th scope="col">Status</th>
                                 <th>Action</th>
                             </tr>
                             </thead>
@@ -49,9 +58,9 @@ const ListProperties=()=>{
                                         <td>{p.title}</td>
                                         <td>{p.price}</td>
                                         <td>{p.propertyType}</td>
-                                        <td>{p.area}</td>
+                                        <td>{p.status}</td>
                                         <td>
-                                            <Action property={p}></Action>
+                                            <Action cancelContingency={()=>cancelContingency(p)} property={p}></Action>
                                         </td>
                                     </tr>
                                 );
