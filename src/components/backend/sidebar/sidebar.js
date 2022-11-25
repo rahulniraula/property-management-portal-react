@@ -1,4 +1,5 @@
 import {Link} from "react-router-dom";
+import {userHasRole} from "../../../util/util";
 
 const Sidebar=()=>{
     return (
@@ -18,10 +19,10 @@ const Sidebar=()=>{
                         <i className="bi bi-person"></i>
                         <span>Properties</span>
                     </Link>
-                    <Link to={"/admin/users"} className="nav-link collapsed">
+                    {userHasRole("ADMIN")?<Link to={"/admin/users"} className="nav-link collapsed">
                         <i className="bi bi-person"></i>
                         <span>Users</span>
-                    </Link>
+                    </Link>:null}
                 </li>
 
 

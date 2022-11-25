@@ -23,6 +23,10 @@ export function catchErrorsFromResponse(error){
     let errors=error?.response?.data?.errors;
     return errors.map(error=>error.defaultMessage);
 }
+export function userHasRole(role){
+    let roles=extractUserFromToken()?.roles;
+    return roles?.find(r=>r.role==role);
+}
 export default function extractUserFromToken(){
     let token=getToken("accessToken");
     if(token){

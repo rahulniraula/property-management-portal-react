@@ -11,6 +11,7 @@ import Sidebar from "./sidebar/sidebar";
 import ContentArea from "./content/content-area";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import {userHasRole} from "../../util/util";
 const AdminWrapper=()=>{
     return (
         <>
