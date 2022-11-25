@@ -6,12 +6,12 @@ function HomePageSlider() {
             <Carousel.Item interval={500}>
                 <img
                     className="d-block w-100"
-                    src="https://picsum.photos/2600/800"
+                    src="http://localhost:8080/images/slider2.jpeg"
                     alt="Second slide"
                 />
                 <Carousel.Caption>
-                    <h3>Second slide label</h3>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                    <h3>Property Search Begins Here</h3>
+                    <p>Search for your sweet home.</p>
                 </Carousel.Caption>
             </Carousel.Item>
 

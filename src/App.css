@@ -3,7 +3,7 @@
   /*margin-top: 15%;*/
   height: 100vh;
   background-color: aliceblue;
-  background-image: url("https://picsum.photos/2200/1000");
+  background-image: url("http://localhost:8080/images/slider2.jpeg");
 
 }
 .loginBlock{
