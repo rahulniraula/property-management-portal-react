@@ -9,6 +9,7 @@ import CustomerEnquiry from "../property-details/customer-enquiry";
 import Offer from "./offer";
 import AddToFavoriteList from "../favorite/add-to-favorite-list";
 import FavoriteWrapper from "../favorite/favorite-wrapper";
+import {isLoggedIn} from "../../../util/util";
 function SingleProperty(props) {
     const navigate=useNavigate();
     const [showModal,setShowModal]=useState(false);
@@ -17,14 +18,22 @@ function SingleProperty(props) {
 
     function contactOwner(event){
         event.stopPropagation();
-        setShowModal(true);
+        if(!isLoggedIn()){
+            navigate("/login")
+        }else{
+            setShowModal(true);
+        }
     }
     function handleClose(){
         setShowModal(false);
     }
     function makeOffer(event){
         event.stopPropagation();
-        setShowOfferModal(true)
+        if(!isLoggedIn()){
+            navigate("/login")
+        }else{
+            setShowOfferModal(true)
+        }
     }
     function handleOfferClose(){
         setShowOfferModal(false)
@@ -34,8 +43,11 @@ function SingleProperty(props) {
     }
     function addToFavouriteList(event){
         event.stopPropagation();
-        // console.log("Added to favourite");
-        setShowFavoriteModal(true)
+        if(!isLoggedIn()){
+            navigate("/login")
+        }else{
+            setShowFavoriteModal(true)
+        }
     }
     function success(){
 

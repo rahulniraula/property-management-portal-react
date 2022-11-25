@@ -5,11 +5,23 @@ import {House,Share,Envelope} from 'react-bootstrap-icons';
 import PropertyDetailsIcons from "./property-details-icons";
 import Accordion from "./accordion/accordion-wrapper";
 import AccordionWrapper from "./accordion/accordion-wrapper";
+import {useNavigate, useParams} from "react-router-dom";
+import axios from "axios";
+import {useEffect, useState} from "react";
 const SinglePropertyDetails=(props)=>{
+    const navigate=useNavigate();
+    const [property,setProperty]=useState({});
+    const params=useParams();
+    useEffect(fetchProperty,[])
+    function fetchProperty(){
+        axios({
+            url:'/public/properties/'+params.id
+        }).then(resp=>{
+            setProperty(resp.data)
+        }).catch();
+    }
     return (
         <div className={"row"}>
-            <p>Property Title</p>
-            <i>Address</i>
             <div className={"col-8"}>
                 <HomePageSlider></HomePageSlider>
                 <div className="row">
@@ -17,13 +29,13 @@ const SinglePropertyDetails=(props)=>{
                         <Badge bg="primary">For Sale</Badge>
                     </div>
                     <div className="col-8">
-                        <h4>$2,000</h4>
+                        <h4>{property.price}</h4>
                         <div className="row mt-1">
                             <div className="col-4">
-                                3 <b>bed</b>
+                                {property?.details?.noOfRooms} <b>bed</b>
                             </div>
                             <div className="col-4">
-                                3 <b>Sq.ft</b>
+                                {property.area} <b>Sq.ft</b>
                             </div>
                             <div className="col-4">
                                 3 <b>bed</b>
@@ -41,7 +53,7 @@ const SinglePropertyDetails=(props)=>{
 
                     </div>
                     <div className="col-12">
-                        <AccordionWrapper></AccordionWrapper>
+                        <AccordionWrapper property={property}></AccordionWrapper>
                     </div>
                 </div>
             </div>

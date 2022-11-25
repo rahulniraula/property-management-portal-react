@@ -11,7 +11,7 @@ const Home=()=>{
             </div>
             <div className="row">
                 <div className="col-12">
-                    <PropertyRow title={"Title" } axios={{url:'/properties/'}}></PropertyRow>
+                    <PropertyRow title={"Title" } axios={{url:'/public/properties/'}}></PropertyRow>
                 </div>
             </div>
         </>
