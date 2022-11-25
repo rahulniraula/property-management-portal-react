@@ -10,7 +10,7 @@ const SearchResult=()=>{
     useEffect(()=>fetchProducts(),[searchCriteria])
     function fetchProducts(){
         axios({
-            url:'/properties/',
+            url:'/public/properties/',
             params:searchCriteria
         }).then(resp=>{
             setProducts(resp.data);
@@ -24,7 +24,7 @@ const SearchResult=()=>{
                 </SearchContext.Provider>
             </div>
             <div className="col-9">
-                <PropertyRow title={"Title" } axios={{url:'/properties/'}}></PropertyRow>
+                <PropertyRow title={"Title" } axios={{url:'/public/properties/',params:searchCriteria}}></PropertyRow>
             </div>
         </div>
     );

@@ -6,7 +6,7 @@ import {useEffect, useState} from "react";
 import axios from "axios";
 const PropertyRow=(props)=>{
     const [properties,setProperties]=useState([]);
-    useEffect(fetchProperties,[])
+    useEffect(fetchProperties,[props.axios])
     function fetchProperties(){
         axios({
             ...props.axios
@@ -16,6 +16,7 @@ const PropertyRow=(props)=>{
 
         )
     }
+
     return (
         <div className="row mt-3">
             <div className="col-12">
