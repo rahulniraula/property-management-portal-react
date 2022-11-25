@@ -9,7 +9,7 @@ const CustomerEnquiry=(props)=>{
     const messageR=useRef();
     function sendMessage(){
         axios({
-            url:"/message/"+props?.property?.id+"/",
+            url:"/public/messages/"+props?.property?.id+"/",
             method:'POST',
             data:{
                 fullName:fullNameR.current.value,
