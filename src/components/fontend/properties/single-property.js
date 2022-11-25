@@ -93,7 +93,7 @@ function SingleProperty(props) {
                                 3 <b>bed</b>
                             </div>
                             <div className="col-12">
-                                <i>Address</i>
+                                {/*<i>Address</i>*/}
                             </div>
                         </div>
 

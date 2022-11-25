@@ -11,7 +11,9 @@ const Home=()=>{
             </div>
             <div className="row">
                 <div className="col-12">
-                    <PropertyRow title={"Title" } axios={{url:'/public/properties/'}}></PropertyRow>
+                    <PropertyRow title={"Duplex" } axios={{url:'/public/properties/',params:{propertyType:'DUPLEX'}}}></PropertyRow>
+                    <PropertyRow title={"Condo" } axios={{url:'/public/properties/',params:{propertyType:'CONDO'}}}></PropertyRow>
+                    <PropertyRow title={"Single" } axios={{url:'/public/properties/',params:{propertyType:'SINGLE'}}}></PropertyRow>
                 </div>
             </div>
         </>
