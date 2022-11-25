@@ -43,9 +43,9 @@ const ListUsers=()=>{
                         <h5 className="card-title">Users List</h5>
                     </div>
                     <div className="col-6">
-                        <button onClick={()=>navigate("/admin/users/create")} className={"btn btn-primary float-end"}>
-                            Create <i className={"bi bi-plus"}></i>
-                        </button>
+                        {/*<button onClick={()=>navigate("/admin/users/create")} className={"btn btn-primary float-end"}>*/}
+                        {/*    Create <i className={"bi bi-plus"}></i>*/}
+                        {/*</button>*/}
                     </div>
                 </div>
 

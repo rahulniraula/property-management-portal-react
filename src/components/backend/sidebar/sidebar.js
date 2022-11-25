@@ -7,10 +7,10 @@ const Sidebar=()=>{
             <ul className="sidebar-nav" id="sidebar-nav">
 
                 <li className="nav-item">
-                    <a className="nav-link " href="index.html">
+                    <Link className="nav-link " to="/admin">
                         <i className="bi bi-grid"></i>
                         <span>Dashboard</span>
-                    </a>
+                    </Link>
                 </li>
 
                 <li className="nav-item">
