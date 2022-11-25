@@ -50,6 +50,13 @@ function SingleProperty(props) {
             setShowFavoriteModal(true)
         }
     }
+    function getImage(){
+        let images=props?.property?.images;
+        if(images){
+            return images[0]?.url;
+        }
+        return "https://picsum.photos/200/100"
+    }
     function success(){
 
     }
@@ -66,7 +73,7 @@ function SingleProperty(props) {
             </MyModal>
                 <Card onClick={()=>navigate("/property-details/"+props.property.id)} style={{cursor:"pointer"}}>
                     {/*<Card.Img variant="top" src={props.product.image} />*/}
-                    <Card.Img variant="top" src="https://picsum.photos/200/100" >
+                    <Card.Img variant="top" src={getImage()} >
                     </Card.Img>
                     <div className="col-16" style={{position:'absolute',top:'0px',right:'0px'}}>
                         <Button onClick={addToFavouriteList} title={"Add To Favourite List"} className="btn btn-danger"><HeartFill></HeartFill></Button>
